@@ -2106,7 +2106,8 @@ def debug_fix_file(listing_id):
 @app.route('/cofundersprofiles.html')
 def cofounders_profile():
     return send_file('cofundersprofiles.html')
-@app.before_first_request
-def initialize_database():
+# Always create DB tables, even in production
+with app.app_context():
     db.create_all()
     create_admin_user()
+
