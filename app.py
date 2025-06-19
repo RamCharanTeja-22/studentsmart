@@ -173,7 +173,7 @@ def save_image(image):
     return f"uploads/{unique_filename}"
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return send_file('index.html')
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
