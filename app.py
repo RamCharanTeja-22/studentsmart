@@ -2108,6 +2108,5 @@ def cofounders_profile():
     return send_file('cofundersprofiles.html')
 @app.before_first_request
 def initialize_database():
-    with app.app_context():
-        db.create_all()
-        create_admin_user()
+    db.create_all()
+    create_admin_user()
