@@ -2106,10 +2106,8 @@ def debug_fix_file(listing_id):
 @app.route('/cofundersprofiles.html')
 def cofounders_profile():
     return send_file('cofundersprofiles.html')
-
-if __name__ == '__main__':
+@app.before_first_request
+def initialize_database():
     with app.app_context():
         db.create_all()
         create_admin_user()
-    app.run(host="0.0.0.0", port=80, debug=False)
-
