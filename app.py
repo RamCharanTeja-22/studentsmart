@@ -2106,7 +2106,6 @@ def debug_fix_file(listing_id):
 @app.route('/cofundersprofiles.html')
 def cofounders_profile():
     return send_file('cofundersprofiles.html')
-# Always create DB tables, even in production
 with app.app_context():
     db.create_all()
     create_admin_user()
